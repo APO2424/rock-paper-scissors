@@ -1,0 +1,68 @@
+<script>
+    console.log('Hello World!')
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    
+    function getComputerChoice(){
+        const randomNum = Math.random();
+
+        if (randomNum <= 0.33){
+            return "rock"
+        }
+        else if(randomNum <= 0.66){
+            return "paper"
+        }
+        else{
+            return "scissors"
+        }
+    }
+
+    function getHumanChoice(){
+        const userChoice = prompt("Rock Paper Scissors?").toLowerCase();
+        
+        while (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+        console.error("Invalid choice.");
+        userChoice = prompt("Rock Paper Scissors?").toLowerCase();
+        }
+
+        return userChoice;
+    }
+
+    function playRound(humanChoice, computerChoise){
+
+        if (humanChoice == "rock" && computerChoise == "scissors" ||
+            humanChoice == "paper" && computerChoise == "rock" ||
+            humanChoice == "scissors" && computerChoise == "paper"
+        ){
+            humanScore += 1;
+            console.log("You Win!")
+        }
+        else if (humanChoice == computerChoise){
+            console.log("Tie!");
+        }
+        else{
+            computerScore += 1;
+            console.log("You lose!")
+        }
+
+        console.log("Your score " + humanScore);
+        console.log("Computer score " + computerScore);
+        console.log(computerChoise);
+
+
+    }
+    function playGame()
+    {
+
+        let user = getHumanChoice();
+        let comp = getComputerChoice();
+
+        playRound(user, comp);
+
+    }
+   
+
+    
+</script>
