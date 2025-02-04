@@ -1,68 +1,28 @@
-<script>
-    console.log('Hello World!')
-
-    let humanScore = 0;
-    let computerScore = 0;
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe Game!</title>
     
-    function getComputerChoice(){
-        const randomNum = Math.random();
-
-        if (randomNum <= 0.33){
-            return "rock"
-        }
-        else if(randomNum <= 0.66){
-            return "paper"
-        }
-        else{
-            return "scissors"
-        }
-    }
-
-    function getHumanChoice(){
-        const userChoice = prompt("Rock Paper Scissors?").toLowerCase();
-        
-        while (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
-        console.error("Invalid choice.");
-        userChoice = prompt("Rock Paper Scissors?").toLowerCase();
-        }
-
-        return userChoice;
-    }
-
-    function playRound(humanChoice, computerChoise){
-
-        if (humanChoice == "rock" && computerChoise == "scissors" ||
-            humanChoice == "paper" && computerChoise == "rock" ||
-            humanChoice == "scissors" && computerChoise == "paper"
-        ){
-            humanScore += 1;
-            console.log("You Win!")
-        }
-        else if (humanChoice == computerChoise){
-            console.log("Tie!");
-        }
-        else{
-            computerScore += 1;
-            console.log("You lose!")
-        }
-
-        console.log("Your score " + humanScore);
-        console.log("Computer score " + computerScore);
-        console.log(computerChoise);
-
-
-    }
-    function playGame()
-    {
-
-        let user = getHumanChoice();
-        let comp = getComputerChoice();
-
-        playRound(user, comp);
-
-    }
-   
-
+</head>
+<body>
     
-</script>
+    <div class="button-container">
+        <button id="btnRock">Rock</button>
+        <button id="btnPaper">Paper</button>
+        <button id="btnScissors">Scissors</button>
+    </div>
+    
+    <div class="score-container">
+        <var id="personScoreVar">You: </var>
+        <var id="compScoreVar">Computer: </var>
+        <var id="tieScoreVar">Tie: </var>
+    </div>
+    
+    <script src="game.js" ></script>
+    
+</body>
+
+</html>
